@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://human-pygmalion.github.io/">
 <meta property="og:image" content="https://human-pygmalion.github.io/assets/img/real_lowerbody.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Crect x='9' y='9' width='14' height='14' fill='%230063e1' transform='rotate(45 16 16)'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Crect x='9' y='9' width='14' height='14' fill='%2339c5bb' transform='rotate(45 16 16)'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=STIX+Two+Text:ital,wght@0,500;0,600;1,500;1,600&display=swap">
@@ -29,7 +29,7 @@
    ============================================================ */
 
 :root{
-  --signal-blue:#0063e1;
+  --signal-blue:#39c5bb; /* blue-green accent (was REKKI signal blue #0063e1) */
   --obsidian:#000000;
   --carbon:#040910;
   --graphite:#0d0d0d;
@@ -58,7 +58,7 @@ body{
 }
 img{max-width:100%;display:block;}
 a{color:inherit;text-decoration:none;}
-::selection{background:var(--signal-blue);color:var(--paper);}
+::selection{background:var(--signal-blue);color:var(--obsidian);}
 
 .wrap{max-width:1200px;margin:0 auto;padding:0 32px;}
 @media (max-width:700px){.wrap{padding:0 20px;}}
@@ -112,12 +112,12 @@ h1,h2,h3{margin:0;font-weight:400;color:var(--paper);text-wrap:balance;}
   cursor:pointer;
 }
 .btn-primary{
-  background:var(--signal-blue);color:var(--paper);
+  background:var(--signal-blue);color:var(--obsidian);
   font-size:16px;letter-spacing:-0.007em;
   padding:20px 32px;
 }
 .btn-nav{
-  background:var(--signal-blue);color:var(--paper);
+  background:var(--signal-blue);color:var(--obsidian);
   font-size:13px;padding:11px 20px;
 }
 .btn-outline{
@@ -281,7 +281,7 @@ section{padding:96px 0;}
 .goal-card{
   margin-top:20px;
   border:1px solid var(--border-inset-2);
-  background:linear-gradient(180deg, rgba(0,99,225,.07), transparent);
+  background:linear-gradient(180deg, rgba(57,197,187,.07), transparent);
   font-size:16px;color:var(--paper);line-height:1.65;
 }
 .goal-card b{color:var(--signal-blue);font-weight:500;}
@@ -309,7 +309,7 @@ section{padding:96px 0;}
   justify-self:end;font-family:var(--font-mono);font-size:11px;letter-spacing:0.05em;text-transform:uppercase;
   border-radius:59px;padding:5px 12px;text-align:center;
 }
-.rmap-state.done{background:var(--signal-blue);color:var(--paper);}
+.rmap-state.done{background:var(--signal-blue);color:var(--obsidian);}
 .rmap-state.now{border:1px solid var(--signal-blue);color:var(--signal-blue);}
 .rmap-state.next{color:var(--fog);}
 @media (max-width:760px){.rmap-state{justify-self:start;}}
@@ -400,7 +400,7 @@ section{padding:96px 0;}
   margin-left:8px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.05em;
   padding:2px 8px;border-radius:59px;vertical-align:middle;
 }
-.m-status.active{background:var(--signal-blue);color:var(--paper);}
+.m-status.active{background:var(--signal-blue);color:var(--obsidian);}
 .m-status.alumni{border:1px solid var(--border-inset-2);color:var(--fog);}
 .m-team{font-family:var(--font-mono);font-size:12px;color:var(--smoke);}
 .m-task{font-size:14px;color:var(--ash);}
@@ -559,13 +559,13 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
 
     <div class="notes-grid">
       <div class="card note-card">
-        <div class="mono-label">NOTE 01 - 원천기술의 공백</div>
+        <div class="mono-label">1. 원천기술의 공백</div>
         <p>최근 중국을 중심으로 휴머노이드 산업이 빠르게 성장하고 있지만, 국내에서는 완성된 로봇을 “사용”하는 법은 
 배울 수 있어도 그 안의 원리와 설계 과정을 직접 다뤄볼 기회는 많지 않다는 인식이 있습니다. Human Pygmalion은 
 액추에이터 선정, 구조 설계, 가공, 조립뿐 아니라 제어와 학습까지, 휴머노이드의 전 과정을 팀 안에서 직접 만들며 원천 역량을 쌓습니다.</p>
       </div>
       <div class="card note-card">
-        <div class="mono-label">NOTE 02 - 우리가 만들고 싶은 로봇</div>
+        <div class="mono-label">2. 우리가 만들고 싶은 로봇</div>
         <p>어떻게 하면 <b>사람처럼 에너지 효율적으로 걷고, 사람이 쓰는 도구와 공간을 그대로 쓰고, 사람의 동작을 보고 효율적으로 배울 수 있을지</b>를 고민하며, 최적화된 휴머노이드 로봇을 만드는 것이 목표입니다. 태스크마다 새로 설계하는 로봇이 아니라, 사람의 몸에 맞춰진 세상 전체를 그대로 무대로 쓸 수 있는 로봇 - 그래서 몸(형상)과 제어를 함께 다룹니다.</p>
       </div>
     </div>
