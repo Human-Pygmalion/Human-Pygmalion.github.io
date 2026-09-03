@@ -382,9 +382,15 @@ section{padding:96px 0;}
 
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
-.foot-grid{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:start;}
-.foot-right{text-align:right;}
-@media (max-width:760px){.foot-grid{grid-template-columns:1fr;gap:28px;}}
+.foot-row{margin-top:20px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start;}
+.foot-right{text-align:right;justify-self:end;}
+.foot-panel{
+  background:var(--graphite);border:1px solid var(--border-inset);border-radius:12px;
+  padding:18px 22px;
+}
+.foot-panel .foot-col-label{margin-bottom:10px;}
+.foot-panel p:last-child{margin-bottom:0;}
+@media (max-width:760px){.foot-row{grid-template-columns:1fr;gap:16px;}}
 .foot-mark{display:flex;align-items:center;gap:9px;font-size:18px;color:var(--paper);}
 .foot-tag{margin-top:12px;font-size:14px;color:var(--ash);max-width:300px;line-height:1.6;}
 .foot-col-label{font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fog);margin-bottom:12px;}
@@ -399,7 +405,7 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
 
 /* business card: lab logo + name + address, sits under the project mark */
 .foot-card{
-  margin-top:20px;display:inline-flex;align-items:center;gap:18px;
+  display:inline-flex;align-items:center;gap:18px;
   max-width:440px;padding:18px 22px;border-radius:12px;
   background:var(--paper);color:var(--obsidian);text-decoration:none;
 }
@@ -407,9 +413,8 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
 .foot-card-text{display:flex;flex-direction:column;gap:3px;min-width:0;}
 .foot-card-name{font-size:14px;font-weight:600;color:#0f1f3d;letter-spacing:-0.01em;}
 .foot-card-sub{font-size:12.5px;color:#373b3e;}
-.foot-card-addr{font-family:var(--font-mono);font-size:11px;color:#5a6066;letter-spacing:0.02em;}
 .foot-card:hover{background:#eef3f5;}
-@media (max-width:760px){.foot-right{text-align:left;}}
+@media (max-width:760px){.foot-right{text-align:left;justify-self:stretch;}}
 
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
 </style>
@@ -675,19 +680,16 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
 
 <footer id="contact">
   <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-left">
-        <div class="foot-mark">HUMAN PYGMALION</div>
-        <a class="foot-card" href="https://arisnu.squarespace.com/" target="_blank" rel="noopener" aria-label="Autonomous Robot Intelligence Lab 홈페이지">
-          <img src="assets/img/aril_logo.png" alt="ARIL 로고" width="97" height="42">
-          <div class="foot-card-text">
-            <div class="foot-card-name">Autonomous Robot Intelligence Lab. (ARIL)</div>
-            <div class="foot-card-sub">서울대학교 자율로봇지능 연구실</div>
-            <div class="foot-card-addr">서울특별시 관악구 관악로 1, 36동 212호</div>
-          </div>
-        </a>
-      </div>
-      <div class="foot-col foot-right">
+    <div class="foot-mark">HUMAN PYGMALION</div>
+    <div class="foot-row">
+      <a class="foot-card" href="https://arisnu.squarespace.com/" target="_blank" rel="noopener" aria-label="Autonomous Robot Intelligence Lab 홈페이지">
+        <img src="assets/img/aril_logo.png" alt="ARIL 로고" width="97" height="42">
+        <div class="foot-card-text">
+          <div class="foot-card-name">Autonomous Robot Intelligence Lab. (ARIL)</div>
+          <div class="foot-card-sub">서울대학교 자율로봇지능 연구실</div>
+        </div>
+      </a>
+      <div class="foot-col foot-panel foot-right">
         <div class="foot-col-label">Contact</div>
         <p>E-mail : <a href="mailto:dongyub39@snu.ac.kr">dongyub39@snu.ac.kr</a></p>
         <p>Location : 서울대학교 36동 212호, 자율로봇지능 연구실 (ARILab)<br>서울특별시 관악구 관악로 1</p>
