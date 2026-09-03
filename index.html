@@ -187,7 +187,7 @@ h1,h2,h3{margin:0;font-weight:400;color:var(--paper);text-wrap:balance;}
 }
 @media (max-width:700px){.hero-glass-panel{padding:32px 24px;border-radius:20px;}}
 
-.hero h1{margin:0 auto;max-width:900px;}
+.hero h1{margin:0 auto;max-width:900px;white-space:nowrap;font-size:clamp(34px,9vw,86px);}
 .hero-sub{
   margin:26px auto 0;max-width:560px;
   font-size:18px;letter-spacing:-0.015em;color:var(--ash);
@@ -196,10 +196,20 @@ h1,h2,h3{margin:0;font-weight:400;color:var(--paper);text-wrap:balance;}
 
 /* ---------- section shell ---------- */
 section{padding:96px 0;}
+/* soft edge into Agenda: a feather strip reaches up into the hero, fading
+   the tint and the blur in over ~220px instead of a hard line */
+#agenda::before{
+  content:"";position:absolute;left:0;right:0;top:-220px;height:220px;pointer-events:none;
+  background:linear-gradient(180deg, rgba(4,9,16,0) 0%, rgba(4,9,16,0.35) 55%, rgba(4,9,16,0.6) 100%);
+  backdrop-filter:blur(3px) saturate(1.05);
+  -webkit-backdrop-filter:blur(3px) saturate(1.05);
+  -webkit-mask-image:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+  mask-image:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+}
 #agenda{
   position:relative;z-index:1;
   background-image:
-    radial-gradient(120% 100% at 50% 0%, rgba(4,9,16,0.32) 0%, rgba(4,9,16,0.72) 68%, rgba(4,9,16,0.9) 100%),
+    radial-gradient(120% 100% at 50% 0%, rgba(4,9,16,0.6) 0%, rgba(4,9,16,0.78) 68%, rgba(4,9,16,0.9) 100%),
     url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22180%22%20height%3D%22180%22%3E%3Cfilter%20id%3D%22n%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.9%22%20numOctaves%3D%222%22%20stitchTiles%3D%22stitch%22%2F%3E%3CfeColorMatrix%20type%3D%22matrix%22%20values%3D%220%200%200%200%201%20%200%200%200%200%201%20%200%200%200%200%201%20%200%200%200%200.05%200%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20filter%3D%22url%28%23n%29%22%2F%3E%3C%2Fsvg%3E");
   background-repeat:no-repeat, repeat;
   background-size:cover, 180px 180px;
@@ -523,7 +533,6 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
 <section id="agenda">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow mono-label">AGENDA</div>
       <h2 class="heading-lg">Agenda</h2>
     </div>
 
@@ -657,16 +666,16 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
       <div class="mosaic-frame">
         <div class="mosaic">
         <figure class="mosaic-item">
-            <button class="mosaic-btn" data-caption="01 : CAD - 다리 구동부 설계 단면" aria-label="확대 보기: CAD - 다리 구동부 설계 단면">
-              <img src="assets/img/cad_leg_sections.jpg" width="1800" height="1048" alt="다리 구동부 CAD 단면 및 인체 골격 오버레이 설계 렌더 모음" loading="lazy">
+            <button class="mosaic-btn" data-caption="01 : CAD - 하체 설계도면" aria-label="확대 보기: CAD - 하체 설계도면">
+              <img src="assets/img/cad_leg_sections.jpg" width="1800" height="1048" alt="하체 CAD 설계도면, 인체 오버레이와 관절별 상세" loading="lazy">
             </button>
-            <figcaption><span class="feat-idx">01</span>CAD - 다리 구동부 설계 단면</figcaption>
+            <figcaption><span class="feat-idx">01</span>CAD - 하체 설계도면</figcaption>
           </figure>
         <figure class="mosaic-item">
-            <button class="mosaic-btn" data-caption="02 : 사람 스캔 → 모션 캡처 → 프로토타입 → CAD → Huphy 1.0" aria-label="확대 보기: 사람 스캔에서 Huphy 1.0까지의 설계 파이프라인">
-              <img src="assets/img/design_pipeline.jpg" width="1800" height="1014" alt="사람 스캔에서 최종 로봇까지의 설계 파이프라인 5단계 몽타주" loading="lazy">
+            <button class="mosaic-btn" data-caption="02 : 사람 외형 → 강화학습 → 프로토타입 → 하드웨어 설계 → Huphy 1.0" aria-label="확대 보기: 사람 외형에서 Huphy 1.0까지의 개발 과정">
+              <img src="assets/img/design_pipeline.jpg" width="1800" height="1014" alt="사람 외형, 강화학습, 프로토타입, 하드웨어 설계, Huphy 1.0 배포까지의 개발 과정 5단계" loading="lazy">
             </button>
-            <figcaption><span class="feat-idx">02</span>사람 스캔 → 모션 캡처 → 프로토타입 → CAD → Huphy 1.0</figcaption>
+            <figcaption><span class="feat-idx">02</span>사람 외형 → 강화학습 → 프로토타입 → 하드웨어 설계 → Huphy 1.0</figcaption>
           </figure>
         <figure class="mosaic-item">
             <button class="mosaic-btn" data-caption="03 : 하체 조립 완료" aria-label="확대 보기: 하체 조립 완료">
