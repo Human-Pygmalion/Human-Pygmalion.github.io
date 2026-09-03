@@ -174,18 +174,6 @@ h1,h2,h3{margin:0;font-weight:400;color:var(--paper);text-wrap:balance;}
   padding:120px 0 96px;
   text-align:center;
 }
-/* strong feather at the bottom of the hero: the pinned video fades into
-   pure black over ~340px (tint + blur ramp), so Recruiting's dark surface
-   continues seamlessly instead of starting with a hard line */
-.hero::after{
-  content:"";position:absolute;left:0;right:0;bottom:0;height:340px;z-index:0;pointer-events:none;
-  background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0.8) 70%, #000 100%);
-  backdrop-filter:blur(6px);
-  -webkit-backdrop-filter:blur(6px);
-  -webkit-mask-image:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,1) 100%);
-  mask-image:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,1) 100%);
-}
-.hero{padding-bottom:140px;}
 .hero-in{position:relative;z-index:1;width:100%;}
 
 /* rounded frosted-glass card behind the hero title/subhead, so the copy
@@ -343,9 +331,32 @@ section{padding:96px 0;}
 .m-task{font-size:14px;color:var(--ash);}
 
 /* ---------- positions ---------- */
-#positions{position:relative;overflow:hidden;background:var(--obsidian);padding:128px 0 112px;}
+/* Recruiting scrolls up over the pinned hero video behind a frosted surface;
+   the feather strip above it fades tint + blur in instead of a hard edge */
+#positions::before{
+  content:"";position:absolute;left:0;right:0;top:-220px;height:220px;pointer-events:none;
+  background:linear-gradient(180deg, rgba(4,9,16,0) 0%, rgba(4,9,16,0.35) 55%, rgba(4,9,16,0.6) 100%);
+  backdrop-filter:blur(3px) saturate(1.05);
+  -webkit-backdrop-filter:blur(3px) saturate(1.05);
+  -webkit-mask-image:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+  mask-image:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+}
+#positions{
+  position:relative;z-index:1;
+  background-image:
+    radial-gradient(120% 100% at 50% 0%, rgba(4,9,16,0.6) 0%, rgba(4,9,16,0.78) 68%, rgba(4,9,16,0.9) 100%),
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22180%22%20height%3D%22180%22%3E%3Cfilter%20id%3D%22n%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.9%22%20numOctaves%3D%222%22%20stitchTiles%3D%22stitch%22%2F%3E%3CfeColorMatrix%20type%3D%22matrix%22%20values%3D%220%200%200%200%201%20%200%200%200%200%201%20%200%200%200%200%201%20%200%200%200%200.05%200%22%2F%3E%3C%2Ffilter%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20filter%3D%22url%28%23n%29%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat:no-repeat, repeat;
+  background-size:cover, 180px 180px;
+  backdrop-filter:blur(3px) saturate(1.05);
+  -webkit-backdrop-filter:blur(3px) saturate(1.05);
+}
+#positions{padding:128px 0 112px;}
 #positions .pos-grid .card{padding:32px 30px;}
 #positions .wrap{position:relative;z-index:2;}
+/* Roadmap carries the robot-render backdrop (moved from Recruiting) */
+#roadmap{position:relative;overflow:hidden;background:var(--obsidian);}
+#roadmap .wrap{position:relative;z-index:2;}
 .pos-bg-img{
   position:absolute;inset:0;z-index:0;pointer-events:none;
   background-image:var(--pos-img);
@@ -466,11 +477,7 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
     </div>
   </div>
 
-</div>
-
-<section id="positions" style="--pos-img:url('assets/img/recruiting_bg.jpg');">
-  <div class="pos-bg-img"></div>
-  <div class="pos-bg-glass"></div>
+<section id="positions">
   <div class="wrap">
     <div class="pos-head-wrap">
       <div class="pos-head-glass">
@@ -508,8 +515,11 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
     </div>
   </div>
 </section>
+</div>
 
-<section id="roadmap">
+<section id="roadmap" style="--pos-img:url('assets/img/recruiting_bg.jpg');">
+  <div class="pos-bg-img"></div>
+  <div class="pos-bg-glass"></div>
   <div class="wrap">
     <div class="section-head">
       <h2 class="heading-lg">Roadmap</h2>
