@@ -453,6 +453,26 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
   font-family:var(--font-mono);font-size:11px;color:var(--fog);
 }
 
+/* affiliation bar: lab wordmark + link, page bottom */
+.foot-lab{
+  margin-top:32px;padding:22px 24px;
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  background:var(--graphite);border:1px solid var(--border-inset);border-radius:16px;
+}
+.foot-lab-logo{
+  flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+  height:44px;padding:0 14px;border-radius:8px;
+  background:var(--paper);color:var(--obsidian);
+  font-family:var(--font-display);font-weight:700;font-size:17px;letter-spacing:0.12em;
+  text-decoration:none;
+}
+.foot-lab-logo img{height:44px;width:auto;display:block;}
+.foot-lab-text{display:flex;flex-direction:column;gap:4px;min-width:0;}
+.foot-lab-text .foot-col-label{margin-bottom:0;}
+.foot-lab-text a{color:var(--paper);font-size:15px;text-decoration:none;}
+.foot-lab-text a:hover{color:var(--signal-blue);}
+.foot-lab-text small{font-size:12.5px;color:var(--ash);}
+
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
 </style>
 </head>
@@ -773,6 +793,15 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
     <div class="foot-bottom">
       <span>© 2026 HUMAN PYGMALION - SEOUL NATIONAL UNIVERSITY</span>
       <span>MIN D( HUMAN, HUMANOID )</span>
+    </div>
+
+    <div class="foot-lab">
+      <a class="foot-lab-logo" href="https://arisnu.squarespace.com/" target="_blank" rel="noopener" aria-label="ARI LAB 홈페이지">ARI LAB</a>
+      <div class="foot-lab-text">
+        <div class="foot-col-label">Affiliation</div>
+        <a href="https://arisnu.squarespace.com/" target="_blank" rel="noopener">Autonomous Robot Intelligence Lab. (ARIL) ↗</a>
+        <small>서울대학교 자율로봇지능 연구실, 36동 212호</small>
+      </div>
     </div>
   </div>
 </footer>
