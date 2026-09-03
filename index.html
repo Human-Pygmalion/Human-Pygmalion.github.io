@@ -183,7 +183,6 @@ h1,h2,h3{margin:0;font-weight:400;color:var(--paper);text-wrap:balance;}
   display:inline-block;max-width:720px;margin:0 auto;
   padding:52px 64px;border-radius:24px;
   background:rgba(4,9,16,0.44);
-  border:1px solid var(--border-inset-2);
   backdrop-filter:blur(14px) saturate(1.1);
   -webkit-backdrop-filter:blur(14px) saturate(1.1);
 }
@@ -287,10 +286,11 @@ section{padding:96px 0;}
 }
 .goal-card b{color:var(--signal-blue);font-weight:500;}
 
-.rmap-heading{margin-top:56px;text-align:center;}
+.rmap-center{text-align:center;}
+.rmap-center .card.roadmap{text-align:left;}
 
 .status-pill{
-  display:inline-flex;align-items:center;gap:8px;margin-top:24px;
+  display:inline-flex;align-items:center;gap:8px;margin:0 0 20px;
   border-radius:59px;background:var(--iron);border:1px solid var(--border-inset);
   padding:8px 16px;font-family:var(--font-mono);font-size:12px;letter-spacing:0.033em;color:var(--ash);
 }
@@ -432,7 +432,6 @@ section{padding:96px 0;}
   display:inline-block;max-width:720px;margin:0 auto 12px;
   padding:22px 36px;border-radius:20px;
   background:rgba(4,9,16,0.62);
-  border:1px solid var(--border-inset-2);
   backdrop-filter:blur(14px) saturate(1.1);
   -webkit-backdrop-filter:blur(14px) saturate(1.1);
 }
@@ -459,7 +458,8 @@ section{padding:96px 0;}
 
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
-.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;}
+.foot-grid{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:start;}
+.foot-right{text-align:right;}
 @media (max-width:760px){.foot-grid{grid-template-columns:1fr;gap:28px;}}
 .foot-mark{display:flex;align-items:center;gap:9px;font-size:18px;color:var(--paper);}
 .foot-tag{margin-top:12px;font-size:14px;color:var(--ash);max-width:300px;line-height:1.6;}
@@ -473,25 +473,19 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
   font-family:var(--font-mono);font-size:11px;color:var(--fog);
 }
 
-/* affiliation bar: lab wordmark + link, page bottom */
-.foot-lab{
-  margin-top:40px;padding:22px 24px;
-  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
-  background:var(--graphite);border:1px solid var(--border-inset);border-radius:16px;
+/* business card: lab logo + name + address, sits under the project mark */
+.foot-card{
+  margin-top:20px;display:inline-flex;align-items:center;gap:18px;
+  max-width:440px;padding:18px 22px;border-radius:12px;
+  background:var(--paper);color:var(--obsidian);text-decoration:none;
 }
-.foot-lab-logo{
-  flex:0 0 auto;display:flex;align-items:center;justify-content:center;
-  height:44px;padding:0 14px;border-radius:8px;
-  background:var(--paper);color:var(--obsidian);
-  font-family:var(--font-display);font-weight:700;font-size:17px;letter-spacing:0.12em;
-  text-decoration:none;
-}
-.foot-lab-logo img{height:44px;width:auto;display:block;}
-.foot-lab-text{display:flex;flex-direction:column;gap:4px;min-width:0;}
-.foot-lab-text .foot-col-label{margin-bottom:0;}
-.foot-lab-text a{color:var(--paper);font-size:15px;text-decoration:none;}
-.foot-lab-text a:hover{color:var(--signal-blue);}
-.foot-lab-text small{font-size:12.5px;color:var(--ash);}
+.foot-card img{height:48px;width:auto;flex:0 0 auto;image-rendering:auto;}
+.foot-card-text{display:flex;flex-direction:column;gap:3px;min-width:0;}
+.foot-card-name{font-size:14px;font-weight:600;color:#0f1f3d;letter-spacing:-0.01em;}
+.foot-card-sub{font-size:12.5px;color:#373b3e;}
+.foot-card-addr{font-family:var(--font-mono);font-size:11px;color:#5a6066;letter-spacing:0.02em;}
+.foot-card:hover{background:#eef3f5;}
+@media (max-width:760px){.foot-right{text-align:left;}}
 
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
 </style>
@@ -502,10 +496,10 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
   <div class="nav-in">
     <a class="nav-mark" href="#top">HUMAN PYGMALION</a>
     <div class="nav-links">
-      <a href="#agenda">Agenda</a>
-      <a href="#gallery">Gallery</a>
+      <a href="#positions">Recruiting</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#buildlog">Build Log</a>
       <a href="#members">Members</a>
-      <a href="#positions">Positions</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
@@ -533,10 +527,6 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
 
 <section id="agenda">
   <div class="wrap">
-    <div class="section-head">
-      <h2 class="heading-lg">Agenda</h2>
-    </div>
-
     <div class="card equation-card">
       <div class="eq-row">
         <div class="eq-min-block">
@@ -557,7 +547,6 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
       </div>
     </div>
 
-
     <div class="notes-grid">
       <div class="card note-card">
         <div class="mono-label">1. 원천기술의 공백</div>
@@ -574,12 +563,60 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
     <div class="card goal-card">
       목표는 <b>사람처럼 에너지 효율적으로 걷고, 사람의 도구와 공간을 그대로 쓰며, 사람의 동작을 보고 효율적으로 배우는 최적화된 휴머노이드</b>를 만드는 것과,<br>그 몸과 제어를 설계 → 제작 → 조립 → 제어 → 학습 → 활용 전 과정 직접 다루며 팀 안에 역량을 쌓는 것입니다.
     </div>
+  </div>
+</section>
+</div>
 
-    <div class="rmap-heading"><h3 class="heading">Roadmap</h3></div>
+<section id="positions" style="--pos-img:url('assets/img/recruiting_bg.jpg');">
+  <div class="pos-bg-img"></div>
+  <div class="pos-bg-glass"></div>
+  <div class="wrap">
+    <div class="pos-head-wrap">
+      <div class="pos-head-glass">
+        <div class="section-head">
+          <h2 class="heading-lg">Recruiting</h2>
+          <p class="section-lede">새로운 도전적 여정에 함께할 여러분을 기다립니다.</p>
+        </div>
+      </div>
+    </div>
 
-    <div class="status-pill">STATUS - Huphy 1.0 하체 조립 완료, 기립과 보행 제어 준비 중</div>
+    <div class="pos-grid">
+      <div class="card">
+        <div class="pos-qty">QTY : 1~2명</div>
+        <div class="pos-name">설계</div>
+        <div class="pos-desc">휴머노이드 외관 디자인 및 설계 - 마운트, 커버 등 하드웨어 인터페이스 포함</div>
+        <div class="pos-pref">우대 - 3D CAD 경험 (Fusion360 외)</div>
+      </div>
+      <div class="card">
+        <div class="pos-qty">QTY : 1~3명</div>
+        <div class="pos-name">제작</div>
+        <div class="pos-desc">설계된 부품을 정밀 가공(CNC, 3D 프린팅)으로 구현하는 제조 엔지니어링</div>
+        <div class="pos-pref">우대 - 3D 프린터, CNC 경험자, 2D / 3D 도면 작성에 관심</div>
+      </div>
+      <div class="card">
+        <div class="pos-qty">QTY : 1~2명</div>
+        <div class="pos-name">제어</div>
+        <div class="pos-desc">모터 제어, 강화학습 기반 보행 제어, 시스템 아키텍처 설계</div>
+        <div class="pos-pref">우대 - C++/Python, 강화학습 또는 로보틱스 제어에 관심</div>
+      </div>
+    </div>
 
-    <div class="card roadmap" style="padding:8px 0;">
+    <div class="pos-cta">
+      <p>프로젝트에 관심이 있다면 메일로 연락해 주세요.</p>
+      <a class="btn-pill btn-primary" href="mailto:dongyub39@snu.ac.kr">연락하기 ↗</a>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="heading-lg">Roadmap</h2>
+    </div>
+    <div class="rmap-center">
+      <div class="status-pill">STATUS - Huphy 1.0 하체 조립 완료, 기립과 보행 제어 준비 중</div>
+
+      <div class="card roadmap" style="padding:8px 0;">
       <div class="rmap-row">
         <div class="rmap-phase">Phase 1</div>
         <div class="rmap-name">하체 설계와 제작</div>
@@ -605,15 +642,14 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
         <div class="rmap-state next">Next</div>
       </div>
     </div>
+    </div>
   </div>
 </section>
-</div>
 
-<section id="gallery">
+<section id="buildlog">
   <div class="wrap">
     <div class="section-head">
-      <div class="section-eyebrow mono-label">DESIGN &amp; BUILD LOG</div>
-      <h2 class="heading-lg">Gallery</h2>
+      <h2 class="heading-lg">Design &amp; Build Log</h2>
       <p class="section-lede">컨셉부터 실제 프로토타입 Huphy 1.0 제작까지의 여정</p>
     </div>
 
@@ -663,7 +699,7 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
     </div>
 
     <details class="gallery-more">
-      <summary>이미지 더보기 <span class="chevron">▾</span></summary>
+      <summary>Gallery <span class="chevron">▾</span></summary>
       <div class="mosaic-frame">
         <div class="mosaic">
         <figure class="mosaic-item">
@@ -753,73 +789,26 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
   </div>
 </section>
 
-<section id="positions" style="--pos-img:url('assets/img/recruiting_bg.jpg');">
-  <div class="pos-bg-img"></div>
-  <div class="pos-bg-glass"></div>
-  <div class="wrap">
-    <div class="pos-head-wrap">
-      <div class="pos-head-glass">
-        <div class="section-head">
-          <h2 class="heading-lg">Recruiting</h2>
-          <p class="section-lede">새로운 도전적 여정에 함께할 여러분을 기다립니다.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="pos-grid">
-      <div class="card">
-        <div class="pos-qty">QTY : 1~2명</div>
-        <div class="pos-name">설계</div>
-        <div class="pos-desc">휴머노이드 외관 디자인 및 설계 - 마운트, 커버 등 하드웨어 인터페이스 포함</div>
-        <div class="pos-pref">우대 - 3D CAD 경험 (Fusion360 외)</div>
-      </div>
-      <div class="card">
-        <div class="pos-qty">QTY : 1~3명</div>
-        <div class="pos-name">제작</div>
-        <div class="pos-desc">설계된 부품을 정밀 가공(CNC, 3D 프린팅)으로 구현하는 제조 엔지니어링</div>
-        <div class="pos-pref">우대 - 3D 프린터, CNC 경험자, 2D / 3D 도면 작성에 관심</div>
-      </div>
-      <div class="card">
-        <div class="pos-qty">QTY : 1~2명</div>
-        <div class="pos-name">제어</div>
-        <div class="pos-desc">모터 제어, 강화학습 기반 보행 제어, 시스템 아키텍처 설계</div>
-        <div class="pos-pref">우대 - C++/Python, 강화학습 또는 로보틱스 제어에 관심</div>
-      </div>
-    </div>
-
-    <div class="pos-cta">
-      <p>프로젝트에 관심이 있다면 메일로 연락해 주세요.</p>
-      <a class="btn-pill btn-primary" href="mailto:dongyub39@snu.ac.kr">연락하기 ↗</a>
-    </div>
-  </div>
-</section>
-
 <footer id="contact">
   <div class="wrap">
     <div class="foot-grid">
-      <div>
+      <div class="foot-left">
         <div class="foot-mark">HUMAN PYGMALION</div>
+        <a class="foot-card" href="https://arisnu.squarespace.com/" target="_blank" rel="noopener" aria-label="Autonomous Robot Intelligence Lab 홈페이지">
+          <img src="assets/img/aril_logo.png" alt="ARIL 로고" width="97" height="42">
+          <div class="foot-card-text">
+            <div class="foot-card-name">Autonomous Robot Intelligence Lab. (ARIL)</div>
+            <div class="foot-card-sub">서울대학교 자율로봇지능 연구실</div>
+            <div class="foot-card-addr">서울특별시 관악구 관악로 1, 36동 212호</div>
+          </div>
+        </a>
       </div>
-      <div class="foot-col">
+      <div class="foot-col foot-right">
         <div class="foot-col-label">Contact</div>
         <p>E-mail : <a href="mailto:dongyub39@snu.ac.kr">dongyub39@snu.ac.kr</a></p>
         <p>Location : 서울대학교 36동 212호, 자율로봇지능 연구실 (ARILab)<br>서울특별시 관악구 관악로 1</p>
       </div>
-      <div class="foot-col">
-        <div class="foot-col-label">Links</div>
-        <a href="https://human-pygmalion.github.io/" target="_blank" rel="noopener">Human-Pygmalion.github.io ↗</a>
-        <a href="https://arisnu.squarespace.com/" target="_blank" rel="noopener">자율로봇지능 연구실 (ARILab) ↗</a>
-      </div>
     </div>
-    <div class="foot-lab">
-      <a class="foot-lab-logo" href="https://arisnu.squarespace.com/" target="_blank" rel="noopener" aria-label="ARI LAB 홈페이지">ARI LAB</a>
-      <div class="foot-lab-text">
-        <div class="foot-col-label">소속</div>
-        <a href="https://arisnu.squarespace.com/" target="_blank" rel="noopener">Autonomous Robot Intelligence Lab. (ARIL) ↗</a>
-        <small>서울대학교 자율로봇지능 연구실, 36동 212호</small>
-      </div>
-    </div>
-
     <div class="foot-bottom">
       <span>© 2026 HUMAN PYGMALION - SEOUL NATIONAL UNIVERSITY</span>
       <span>MIN D( HUMAN, HUMANOID )</span>
@@ -1076,7 +1065,6 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
     });
   })();
 </script>
-
 
 </body>
 </html>
