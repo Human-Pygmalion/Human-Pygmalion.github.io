@@ -97,10 +97,6 @@ h1,h2,h3{margin:0;font-weight:400;color:var(--paper);text-wrap:balance;}
   display:flex;align-items:center;gap:9px;
   font-size:16px;font-weight:600;letter-spacing:-0.007em;color:var(--paper);
 }
-.nav-mark .pi{
-  width:9px;height:9px;background:var(--signal-blue);
-  transform:rotate(45deg);
-}
 .nav-links{justify-self:center;display:flex;gap:32px;}
 .nav-links a{font-size:16px;letter-spacing:-0.007em;color:var(--ash);}
 .nav-links a:hover{color:var(--paper);}
@@ -400,7 +396,8 @@ section{padding:96px 0;}
 .m-task{font-size:14px;color:var(--ash);}
 
 /* ---------- positions ---------- */
-#positions{position:relative;overflow:hidden;background:var(--obsidian);}
+#positions{position:relative;overflow:hidden;background:var(--obsidian);padding:128px 0 112px;}
+#positions .pos-grid .card{padding:32px 30px;}
 #positions .wrap{position:relative;z-index:2;}
 .pos-bg-img{
   position:absolute;inset:0;z-index:0;pointer-events:none;
@@ -420,32 +417,43 @@ section{padding:96px 0;}
   backdrop-filter:blur(2px) saturate(1.05);
   -webkit-backdrop-filter:blur(2px) saturate(1.05);
 }
-.pos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.pos-head-glass{
+  display:inline-block;max-width:720px;margin:0 auto 12px;
+  padding:36px 48px;border-radius:24px;
+  background:rgba(4,9,16,0.62);
+  border:1px solid var(--border-inset-2);
+  backdrop-filter:blur(14px) saturate(1.1);
+  -webkit-backdrop-filter:blur(14px) saturate(1.1);
+}
+.pos-head-glass .section-head{margin-bottom:0;}
+@media (max-width:700px){.pos-head-glass{padding:28px 22px;border-radius:20px;}}
+.pos-head-wrap{text-align:center;margin-bottom:40px;}
+.pos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
 @media (max-width:860px){.pos-grid{grid-template-columns:1fr;}}
 .pos-qty{
   display:inline-block;background:var(--iron);border:1px solid var(--border-inset);
-  border-radius:59px;padding:5px 14px;font-family:var(--font-mono);font-size:11px;letter-spacing:0.05em;color:var(--signal-blue);
+  border-radius:59px;padding:8px 18px;font-family:var(--font-mono);font-size:14px;letter-spacing:0.05em;color:var(--signal-blue);
 }
-.pos-name{margin-top:18px;font-size:22px;color:var(--paper);}
-.pos-desc{margin-top:12px;font-size:14.5px;color:var(--ash);line-height:1.6;}
-.pos-pref{margin-top:16px;font-family:var(--font-mono);font-size:11.5px;color:var(--smoke);}
+.pos-name{margin-top:20px;font-size:28px;color:var(--paper);}
+.pos-desc{margin-top:14px;font-size:16px;color:var(--ash);line-height:1.65;}
+.pos-pref{margin-top:18px;font-family:var(--font-mono);font-size:13px;color:var(--smoke);}
 
 .pos-cta{
   margin-top:40px;padding:28px 28px;
   display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
   background:var(--graphite);border:1px solid var(--border-inset);border-radius:16px;
 }
-.pos-cta p{margin:0;font-size:15px;color:var(--paper);}
+.pos-cta p{margin:0;font-size:17px;color:var(--paper);}
 
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
 .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;}
 @media (max-width:760px){.foot-grid{grid-template-columns:1fr;gap:28px;}}
 .foot-mark{display:flex;align-items:center;gap:9px;font-size:18px;color:var(--paper);}
-.foot-mark .pi{width:9px;height:9px;background:var(--signal-blue);transform:rotate(45deg);}
 .foot-tag{margin-top:12px;font-size:14px;color:var(--ash);max-width:300px;line-height:1.6;}
 .foot-col-label{font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--fog);margin-bottom:12px;}
-.foot-col a, .foot-col p{display:block;color:var(--ash);font-size:14px;margin-bottom:8px;}
+.foot-col a, .foot-col p{display:block;color:var(--ash);font-size:14px;margin-bottom:8px;line-height:1.6;}
+.foot-col p a{display:inline;margin:0;}
 .foot-col a:hover{color:var(--paper);}
 .foot-bottom{
   margin-top:48px;padding-top:24px;border-top:1px solid var(--border-inset);
@@ -455,7 +463,7 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
 
 /* affiliation bar: lab wordmark + link, page bottom */
 .foot-lab{
-  margin-top:32px;padding:22px 24px;
+  margin-top:40px;padding:22px 24px;
   display:flex;align-items:center;gap:18px;flex-wrap:wrap;
   background:var(--graphite);border:1px solid var(--border-inset);border-radius:16px;
 }
@@ -480,7 +488,7 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
 
 <nav class="nav">
   <div class="nav-in">
-    <a class="nav-mark" href="#top"><span class="pi"></span>HUMAN PYGMALION</a>
+    <a class="nav-mark" href="#top">HUMAN PYGMALION</a>
     <div class="nav-links">
       <a href="#agenda">Agenda</a>
       <a href="#gallery">Gallery</a>
@@ -544,7 +552,7 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
         <div class="mono-label">NOTE 01 - 원천기술의 공백</div>
         <p>최근 중국을 중심으로 휴머노이드 산업이 빠르게 성장하고 있지만, 국내에서는 완성된 로봇을 “사용”하는 법은 
 배울 수 있어도 그 안의 원리와 설계 과정을 직접 다뤄볼 기회는 많지 않다는 인식이 있습니다. Human Pygmalion은 
-액추에이터 선정, 구조 설계, 가공, 조립뿐 아니라 제어와 학습까지 - 휴머노이드의 전 과정을 팀 안에서 직접 만들며 원천 역량을 쌓습니다.</p>
+액추에이터 선정, 구조 설계, 가공, 조립뿐 아니라 제어와 학습까지, 휴머노이드의 전 과정을 팀 안에서 직접 만들며 원천 역량을 쌓습니다.</p>
       </div>
       <div class="card note-card">
         <div class="mono-label">NOTE 02 - 우리가 만들고 싶은 로봇</div>
@@ -553,7 +561,7 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
     </div>
 
     <div class="card goal-card">
-      목표는 <b>사람처럼 에너지 효율적으로 걷고, 사람의 도구와 공간을 그대로 쓰며, 사람의 동작을 보고 효율적으로 배우는 최적화된 휴머노이드</b>를 만드는 것 - 그리고 그 몸과 제어를 설계 → 제작 → 조립 → 제어 → 학습 → 활용 전 과정 직접 다루며 팀 안에 역량을 쌓는 것입니다.
+      목표는 <b>사람처럼 에너지 효율적으로 걷고, 사람의 도구와 공간을 그대로 쓰며, 사람의 동작을 보고 효율적으로 배우는 최적화된 휴머노이드</b>를 만드는 것과,<br>그 몸과 제어를 설계 → 제작 → 조립 → 제어 → 학습 → 활용 전 과정 직접 다루며 팀 안에 역량을 쌓는 것입니다.
     </div>
 
     <div class="rmap-heading"><h3 class="heading">Roadmap</h3></div>
@@ -595,48 +603,48 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
     <div class="section-head">
       <div class="section-eyebrow mono-label">DESIGN &amp; BUILD LOG</div>
       <h2 class="heading-lg">Gallery</h2>
-      <p class="section-lede">컨셉 스케치부터 실물까지 - Huphy 1.0이 만들어진 과정.</p>
+      <p class="section-lede">컨셉부터 실제 프로토타입 Huphy 1.0 제작까지의 여정</p>
     </div>
 
     <div class="mosaic-frame">
       <div class="mosaic mosaic--featured">
         <figure class="mosaic-item">
           <button class="mosaic-btn" data-caption="REAL : Huphy 1.0 하체 실물" aria-label="확대 보기: Huphy 1.0 하체 실물">
-            <img src="assets/img/real_lowerbody.jpg" alt="Huphy 1.0 하체 조립 실물 사진" loading="lazy">
+            <img src="assets/img/real_lowerbody.jpg" width="1200" height="1600" alt="Huphy 1.0 하체 조립 실물 사진" loading="lazy">
           </button>
           <figcaption><span class="feat-idx">REAL</span>실물 - Huphy 1.0 하체</figcaption>
         </figure>
         <figure class="mosaic-item">
           <button class="mosaic-btn" data-caption="CONCEPT : 초기 컨셉 스케치" aria-label="확대 보기: 초기 컨셉 스케치">
-            <img src="assets/img/concept_sketch.jpg" alt="휴머노이드 외형 초기 컨셉 스케치 노트" loading="lazy">
+            <img src="assets/img/concept_sketch.jpg" width="1298" height="745" alt="휴머노이드 외형 초기 컨셉 스케치 노트" loading="lazy">
           </button>
           <figcaption><span class="feat-idx">CONCEPT</span>컨셉아트 - 초기 스케치</figcaption>
         </figure>
         <figure class="mosaic-item">
           <button class="mosaic-btn" data-caption="DESIGN : 외형 디자인 렌더" aria-label="확대 보기: 외형 디자인 렌더">
-            <img src="assets/img/design_render_side.jpg" alt="휴머노이드 외형 디자인 CAD 렌더, 측면" loading="lazy">
+            <img src="assets/img/design_render_side.jpg" width="814" height="1514" alt="휴머노이드 외형 디자인 CAD 렌더, 측면" loading="lazy">
           </button>
           <figcaption><span class="feat-idx">DESIGN</span>디자인 - 외형 렌더</figcaption>
         </figure>
         <figure class="mosaic-item">
           <button class="mosaic-btn" data-caption="CAD : 다리 구동부 설계, 인체 오버레이" aria-label="확대 보기: 다리 구동부 CAD 설계 및 인체 오버레이">
-            <img src="assets/img/cad_leg_human_overlay.jpg" alt="다리 구동부 CAD 설계 단면 및 인체 골격 오버레이" loading="lazy">
+            <img src="assets/img/cad_leg_human_overlay.jpg" width="1259" height="1600" alt="다리 구동부 CAD 설계 단면 및 인체 골격 오버레이" loading="lazy">
           </button>
           <figcaption><span class="feat-idx">CAD</span>설계 - 다리 구동부, 인체 오버레이</figcaption>
         </figure>
         <figure class="mosaic-item">
           <button class="mosaic-btn" data-caption="FAB : 부품 정밀 가공 중" aria-label="확대 보기: 부품 정밀 가공 중">
-            <img src="assets/img/fab_vise.jpg" alt="바이스에 고정한 부품을 렌치와 해머로 가공하는 모습" loading="lazy">
+            <img src="assets/img/fab_vise.jpg" width="1400" height="791" alt="바이스에 고정한 부품을 렌치와 해머로 가공하는 모습" loading="lazy">
           </button>
           <figcaption><span class="feat-idx">FAB</span>가공 중 - 부품 정밀 가공</figcaption>
         </figure>
         <figure class="mosaic-item">
-          <video class="autoplay-video" src="assets/video/leg_motion_test.mp4" poster="assets/img/leg_motion_poster.jpg" muted="muted" loop="" playsinline="" controls="controls" preload="metadata" aria-label="다리 구동 테스트 동작 영상"></video>
+          <video class="autoplay-video" width="1280" height="720" src="assets/video/leg_motion_test.mp4" poster="assets/img/leg_motion_poster.jpg" muted="muted" loop="" playsinline="" controls="controls" preload="metadata" aria-label="다리 구동 테스트 동작 영상"></video>
           <figcaption><span class="feat-idx">MOTION</span>동작 - 다리 구동 테스트</figcaption>
         </figure>
         <figure class="mosaic-item">
           <button class="mosaic-btn" data-caption="SIM : 시뮬레이션 모델" aria-label="확대 보기: 시뮬레이션 모델">
-            <img src="assets/img/sim_model.jpg" alt="다리 구동부 및 텔레오퍼레이션 마스터 암 시뮬레이션 모델 렌더" loading="lazy">
+            <img src="assets/img/sim_model.jpg" width="1333" height="1113" alt="다리 구동부 및 텔레오퍼레이션 마스터 암 시뮬레이션 모델 렌더" loading="lazy">
           </button>
           <figcaption><span class="feat-idx">SIM</span>시뮬레이션 모델</figcaption>
         </figure>
@@ -649,25 +657,25 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
         <div class="mosaic">
         <figure class="mosaic-item">
             <button class="mosaic-btn" data-caption="01 : CAD - 다리 구동부 설계 단면" aria-label="확대 보기: CAD - 다리 구동부 설계 단면">
-              <img src="assets/img/cad_leg_sections.jpg" alt="다리 구동부 CAD 단면 및 인체 골격 오버레이 설계 렌더 모음" loading="lazy">
+              <img src="assets/img/cad_leg_sections.jpg" width="1800" height="1048" alt="다리 구동부 CAD 단면 및 인체 골격 오버레이 설계 렌더 모음" loading="lazy">
             </button>
             <figcaption><span class="feat-idx">01</span>CAD - 다리 구동부 설계 단면</figcaption>
           </figure>
         <figure class="mosaic-item">
             <button class="mosaic-btn" data-caption="02 : 사람 스캔 → 모션 캡처 → 프로토타입 → CAD → Huphy 1.0" aria-label="확대 보기: 사람 스캔에서 Huphy 1.0까지의 설계 파이프라인">
-              <img src="assets/img/design_pipeline.jpg" alt="사람 스캔에서 최종 로봇까지의 설계 파이프라인 5단계 몽타주" loading="lazy">
+              <img src="assets/img/design_pipeline.jpg" width="1800" height="1014" alt="사람 스캔에서 최종 로봇까지의 설계 파이프라인 5단계 몽타주" loading="lazy">
             </button>
             <figcaption><span class="feat-idx">02</span>사람 스캔 → 모션 캡처 → 프로토타입 → CAD → Huphy 1.0</figcaption>
           </figure>
         <figure class="mosaic-item">
             <button class="mosaic-btn" data-caption="03 : 하체 조립 완료" aria-label="확대 보기: 하체 조립 완료">
-              <img src="assets/img/lowerbody_three_views.jpg" alt="Huphy 1.0 하체 조립 완료, 세 각도" loading="lazy">
+              <img src="assets/img/lowerbody_three_views.jpg" width="1800" height="1014" alt="Huphy 1.0 하체 조립 완료, 세 각도" loading="lazy">
             </button>
             <figcaption><span class="feat-idx">03</span>하체 조립 완료</figcaption>
           </figure>
         <figure class="mosaic-item">
             <button class="mosaic-btn" data-caption="04 : 가공 &amp; 조립 진행" aria-label="확대 보기: 가공 및 조립 진행">
-              <img src="assets/img/fab_assembly_progress.jpg" alt="부품 가공 및 조립 진행 과정 4컷" loading="lazy">
+              <img src="assets/img/fab_assembly_progress.jpg" width="1800" height="1006" alt="부품 가공 및 조립 진행 과정 4컷" loading="lazy">
             </button>
             <figcaption><span class="feat-idx">04</span>가공 &amp; 조립 진행</figcaption>
           </figure>
@@ -738,10 +746,14 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
   <div class="pos-bg-img"></div>
   <div class="pos-bg-glass"></div>
   <div class="wrap">
-    <div class="section-head">
-      <div class="section-eyebrow mono-label">RECRUITING</div>
-      <h2 class="heading-lg">Recruiting</h2>
-      <p class="section-lede">새로운 도전적 여정에 함께할 여러분을 기다립니다.</p>
+    <div class="pos-head-wrap">
+      <div class="pos-head-glass">
+        <div class="section-head">
+          <div class="section-eyebrow mono-label">RECRUITING</div>
+          <h2 class="heading-lg">Recruiting</h2>
+          <p class="section-lede">새로운 도전적 여정에 함께할 여러분을 기다립니다.</p>
+        </div>
+      </div>
     </div>
 
     <div class="pos-grid">
@@ -749,25 +761,25 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
         <div class="pos-qty">QTY : 1~2명</div>
         <div class="pos-name">설계</div>
         <div class="pos-desc">휴머노이드 외관 디자인 및 설계 - 마운트, 커버 등 하드웨어 인터페이스 포함</div>
-        <div class="pos-pref">PREF - 3D CAD 경험 (Fusion360 / SolidWorks 등)</div>
+        <div class="pos-pref">우대 - 3D CAD 경험 (Fusion360 외)</div>
       </div>
       <div class="card">
         <div class="pos-qty">QTY : 1~3명</div>
         <div class="pos-name">제작</div>
         <div class="pos-desc">설계된 부품을 정밀 가공(CNC, 3D 프린팅)으로 구현하는 제조 엔지니어링</div>
-        <div class="pos-pref">PREF - 가공/제작 경험, 공차와 도면 해석 관심자</div>
+        <div class="pos-pref">우대 - 3D 프린터, CNC 경험자, 2D / 3D 도면 작성에 관심</div>
       </div>
       <div class="card">
         <div class="pos-qty">QTY : 1~2명</div>
         <div class="pos-name">제어</div>
         <div class="pos-desc">모터 제어, 강화학습 기반 보행 제어, 시스템 아키텍처 설계</div>
-        <div class="pos-pref">PREF - C++/Python, 강화학습 또는 로보틱스 제어 관심자</div>
+        <div class="pos-pref">우대 - C++/Python, 강화학습 또는 로보틱스 제어에 관심</div>
       </div>
     </div>
 
     <div class="pos-cta">
-      <p>포지션에 관심이 있다면 메일로 연락해 주세요.</p>
-      <a class="btn-pill btn-primary" href="mailto:dongyub39@snu.ac.kr">dongyub39@snu.ac.kr ↗</a>
+      <p>프로젝트에 관심이 있다면 메일로 연락해 주세요.</p>
+      <a class="btn-pill btn-primary" href="mailto:dongyub39@snu.ac.kr">연락하기 ↗</a>
     </div>
   </div>
 </section>
@@ -776,13 +788,12 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="foot-mark"><span class="pi"></span>HUMAN PYGMALION</div>
-        <p class="foot-tag">사람이 할 수 있는 일을, 로봇도 할 수 있도록 - 몸과 제어를 함께 만드는 서울대학교 휴머노이드 프로젝트.</p>
+        <div class="foot-mark">HUMAN PYGMALION</div>
       </div>
       <div class="foot-col">
         <div class="foot-col-label">Contact</div>
-        <a href="mailto:dongyub39@snu.ac.kr">dongyub39@snu.ac.kr</a>
-        <p>서울대학교 관악구 관악로 1<br>36동 212호, 자율로봇지능 연구실 (Autonomous Robot Intelligence Lab, ARILab)</p>
+        <p>E-mail : <a href="mailto:dongyub39@snu.ac.kr">dongyub39@snu.ac.kr</a></p>
+        <p>Location : 서울대학교 36동 212호, 자율로봇지능 연구실 (ARILab)<br>서울특별시 관악구 관악로 1</p>
       </div>
       <div class="foot-col">
         <div class="foot-col-label">Links</div>
@@ -790,18 +801,18 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
         <a href="https://arisnu.squarespace.com/" target="_blank" rel="noopener">자율로봇지능 연구실 (ARILab) ↗</a>
       </div>
     </div>
-    <div class="foot-bottom">
-      <span>© 2026 HUMAN PYGMALION - SEOUL NATIONAL UNIVERSITY</span>
-      <span>MIN D( HUMAN, HUMANOID )</span>
-    </div>
-
     <div class="foot-lab">
       <a class="foot-lab-logo" href="https://arisnu.squarespace.com/" target="_blank" rel="noopener" aria-label="ARI LAB 홈페이지">ARI LAB</a>
       <div class="foot-lab-text">
-        <div class="foot-col-label">Affiliation</div>
+        <div class="foot-col-label">소속</div>
         <a href="https://arisnu.squarespace.com/" target="_blank" rel="noopener">Autonomous Robot Intelligence Lab. (ARIL) ↗</a>
         <small>서울대학교 자율로봇지능 연구실, 36동 212호</small>
       </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© 2026 HUMAN PYGMALION - SEOUL NATIONAL UNIVERSITY</span>
+      <span>MIN D( HUMAN, HUMANOID )</span>
     </div>
   </div>
 </footer>
@@ -861,6 +872,12 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
 
   // Gallery masonry: CSS column-count above is a no-JS fallback, but it
   // leaves a ragged/empty gap under whichever column ends up shortest.
+  // Once JS runs: (1) items are bin-packed into columns (LPT seed, then
+  // move/swap local search), and (2) the columns are given *different
+  // widths* solved so that every column ends at the same height -- an
+  // image never gets cropped, it just gets a slightly wider or narrower
+  // column. Aspect ratios come from the declared width/height attributes,
+  // so the pack is right before the images even load.
   // Once JS runs we measure each item's real height and bin-pack them
   // into flex columns using longest-processing-time-first (LPT): the
   // tallest items are placed first, each into the currently shortest
@@ -881,51 +898,140 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
       return w >= 640 ? 2 : 1;
     }
 
+    var GAP = 16;
+
+    function mediaRatio(item){
+      var m = item.querySelector('img, video');
+      if(!m) return 1;
+      var w = m.naturalWidth || m.videoWidth || parseFloat(m.getAttribute('width')) || 0;
+      var h = m.naturalHeight || m.videoHeight || parseFloat(m.getAttribute('height')) || 0;
+      return (w > 0 && h > 0) ? h / w : 1;
+    }
+
+    function captionHeight(item){
+      var c = item.querySelector('figcaption');
+      if(!c) return 0;
+      var cs = getComputedStyle(c);
+      return c.offsetHeight + (parseFloat(cs.marginTop) || 0);
+    }
+
+    // Column height for a given assignment at a given column width.
+    function colHeight(col, w){
+      var h = 0;
+      col.forEach(function(it, i){ h += it._a * w + it._c + (i ? GAP : 0); });
+      return h;
+    }
+
+    // Solve column widths so every column ends at the same height:
+    //   a_i * w_i + c_i = H for all i,  sum(w_i) = W
+    // => H = (W + sum(c_i / a_i)) / sum(1 / a_i),  w_i = (H - c_i) / a_i
+    // Widths are clamped to [0.62, 1.55] x the equal share so no column
+    // becomes a sliver, then renormalised to fill W exactly.
+    function solveWidths(colsArr, W){
+      var n = colsArr.length, share = W / n;
+      var A = colsArr.map(function(col){ return col.reduce(function(t,it){ return t + it._a; }, 0) || 1e-6; });
+      var C = colsArr.map(function(col){ return col.reduce(function(t,it){ return t + it._c; }, 0) + Math.max(0, col.length - 1) * GAP; });
+      var sInv = 0, sCA = 0;
+      for(var i = 0; i < n; i++){ sInv += 1 / A[i]; sCA += C[i] / A[i]; }
+      var H = (W + sCA) / sInv;
+      var w = [], tot = 0;
+      for(i = 0; i < n; i++){
+        var wi = (H - C[i]) / A[i];
+        wi = Math.min(share * 1.55, Math.max(share * 0.62, wi));
+        w.push(wi); tot += wi;
+      }
+      for(i = 0; i < n; i++) w[i] *= W / tot;
+      return w;
+    }
+
+    // Spread (max - min column height) for an assignment, using the
+    // width-equalised columns it would get. Lower is better.
+    function spread(colsArr, W){
+      var w = solveWidths(colsArr, W), hs = colsArr.map(function(col, i){ return colHeight(col, w[i]); });
+      return Math.max.apply(null, hs) - Math.min.apply(null, hs);
+    }
+
     function layout(root){
       // Skip mosaics that aren't rendered yet (e.g. inside a closed
       // <details>) -- offsetHeight would read 0 and the pack would be
       // meaningless. The details' `toggle` handler re-runs this once open.
       if(root.offsetParent === null && root.closest('details') !== null) return;
 
-      var cols = colsFor(root);
+      var n = colsFor(root);
       var items = Array.prototype.slice.call(root.querySelectorAll('.mosaic-item'));
       if(!items.length) return;
 
-      // Measure while still attached (order doesn't matter for measuring),
-      // then sort tallest-first for LPT packing.
+      var W = root.clientWidth - GAP * (n - 1);
+      if(W <= 0) return;
+      var share = W / n;
+
       items.forEach(function(item, i){
         if(item.dataset.order === undefined) item.dataset.order = i;
-        item._h = item.offsetHeight;
-      });
-      items.sort(function(a,b){ return b._h - a._h; });
-
-      Array.prototype.forEach.call(root.querySelectorAll(':scope > .mosaic-col'), function(col){
-        col.remove();
+        item._a = mediaRatio(item);          // height per unit width
+        item._c = captionHeight(item);       // fixed caption height
+        item._h = item._a * share + item._c; // estimate at equal widths
       });
 
-      root.classList.add('mosaic--js');
+      // 1) LPT seed: tallest first into the currently shortest column.
+      var sorted = items.slice().sort(function(a,b){ return b._h - a._h; });
+      var cols = [], hts = [];
+      for(var c = 0; c < n; c++){ cols.push([]); hts.push(0); }
+      sorted.forEach(function(it){
+        var idx = 0;
+        for(var c = 1; c < n; c++) if(hts[c] < hts[idx]) idx = c;
+        cols[idx].push(it); hts[idx] += it._h + GAP;
+      });
 
-      var colEls = [], heights = [];
-      for(var c = 0; c < cols; c++){
-        var el = document.createElement('div');
-        el.className = 'mosaic-col';
-        root.appendChild(el);
-        colEls.push(el);
-        heights.push(0);
+      // 2) Local search: move or swap items between columns while it
+      //    lowers the height spread of the width-equalised result.
+      if(n > 1){
+        var best = spread(cols, W), improved = true, guard = 0;
+        while(improved && guard++ < 40){
+          improved = false;
+          for(var i = 0; i < n && !improved; i++){
+            for(var j = 0; j < n && !improved; j++){
+              if(i === j) continue;
+              // move one item i -> j
+              for(var k = 0; k < cols[i].length && !improved; k++){
+                if(cols[i].length === 1) break;
+                var it = cols[i].splice(k,1)[0]; cols[j].push(it);
+                var sp = spread(cols, W);
+                if(sp < best - 0.5){ best = sp; improved = true; }
+                else { cols[j].pop(); cols[i].splice(k,0,it); }
+              }
+              // swap one item each
+              for(var k1 = 0; k1 < cols[i].length && !improved; k1++){
+                for(var k2 = 0; k2 < cols[j].length && !improved; k2++){
+                  var t = cols[i][k1]; cols[i][k1] = cols[j][k2]; cols[j][k2] = t;
+                  var sp2 = spread(cols, W);
+                  if(sp2 < best - 0.5){ best = sp2; improved = true; }
+                  else { t = cols[i][k1]; cols[i][k1] = cols[j][k2]; cols[j][k2] = t; }
+                }
+              }
+            }
+          }
+        }
       }
 
-      items.forEach(function(item){
-        var idx = 0;
-        for(var c = 1; c < heights.length; c++){
-          if(heights[c] < heights[idx]) idx = c;
-        }
-        colEls[idx].appendChild(item);
-        heights[idx] += item._h + 16;
+      // 3) Rebuild DOM: columns get the solved widths; inside a column,
+      //    keep the authored (data-order) order so the story still reads.
+      Array.prototype.forEach.call(root.querySelectorAll(':scope > .mosaic-col'), function(col){ col.remove(); });
+      root.classList.add('mosaic--js');
+      var widths = solveWidths(cols, W);
+      cols.forEach(function(col, i){
+        var el = document.createElement('div');
+        el.className = 'mosaic-col';
+        el.style.flex = '0 0 ' + widths[i] + 'px';
+        el.style.width = widths[i] + 'px';
+        col.sort(function(a,b){ return (+a.dataset.order) - (+b.dataset.order); });
+        col.forEach(function(it){ el.appendChild(it); });
+        root.appendChild(el);
       });
     }
 
     function layoutAll(){
       mosaics.forEach(layout);
+      mosaics.forEach(layout); // second pass: captions may have re-wrapped at the new widths
     }
 
     layoutAll();
@@ -934,6 +1040,9 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
       document.fonts.ready.then(layoutAll).catch(function(){});
     }
     setTimeout(layoutAll, 500);
+    document.querySelectorAll('.mosaic-item img').forEach(function(im){
+      if(!im.complete) im.addEventListener('load', function(){ var m = im.closest('.mosaic'); if(m) layout(m); });
+    });
 
     var resizeTimer;
     window.addEventListener('resize', function(){
