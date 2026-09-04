@@ -411,6 +411,8 @@ section{padding:96px 0;}
 }
 .pos-cta p{margin:0;font-size:17px;color:var(--paper);line-height:1.7;}
 .pos-cta-note{color:var(--accent-pop);font-size:15px;}
+.btn-copy-mail{font-family:var(--font-mono);letter-spacing:0.01em;}
+.btn-copy-mail.is-copied{background:var(--signal-blue);color:var(--obsidian);}
 
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
@@ -524,7 +526,7 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
         <span class="pos-cta-note">Application period : until Sept 6<br>
         What to submit : your motivation, the part you are applying for, and related projects or experience, in any format (recommended : PPT / MS Word exported to PDF)<br>
         We will get back to you one by one next week.</span></p>
-      <a class="btn-pill btn-primary" href="mailto:dongyub39@snu.ac.kr">Get in touch ↗</a>
+      <a class="btn-pill btn-primary btn-copy-mail" href="mailto:dongyub39@snu.ac.kr" data-email="dongyub39@snu.ac.kr" data-copied="Address copied" title="Click to copy the address and open your mail app"><span class="btn-copy-label">dongyub39@snu.ac.kr ↗</span></a>
     </div>
   </div>
 </section>
@@ -746,6 +748,35 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
     if(reduce) return;
     document.querySelectorAll('.autoplay-video').forEach(function(v){
       v.play().catch(function(){ /* autoplay blocked; poster frame + controls remain */ });
+    });
+  })();
+
+  // Contact button: copy the address to the clipboard, then let the
+  // mailto: link open the mail app as usual. Brief "copied" feedback.
+  (function(){
+    document.querySelectorAll('.btn-copy-mail').forEach(function(btn){
+      var label = btn.querySelector('.btn-copy-label');
+      var original = label ? label.textContent : '';
+      var timer;
+      btn.addEventListener('click', function(){
+        var email = btn.getAttribute('data-email') || '';
+        var done = function(){
+          if(!label) return;
+          label.textContent = btn.getAttribute('data-copied') || 'Copied';
+          btn.classList.add('is-copied');
+          clearTimeout(timer);
+          timer = setTimeout(function(){ label.textContent = original; btn.classList.remove('is-copied'); }, 1800);
+        };
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(email).then(done).catch(function(){});
+        } else {
+          var ta = document.createElement('textarea');
+          ta.value = email; ta.setAttribute('readonly',''); ta.style.position = 'absolute'; ta.style.left = '-9999px';
+          document.body.appendChild(ta); ta.select();
+          try { document.execCommand('copy'); done(); } catch(e){}
+          document.body.removeChild(ta);
+        }
+      });
     });
   })();
 

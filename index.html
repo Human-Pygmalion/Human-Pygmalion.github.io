@@ -411,6 +411,8 @@ section{padding:96px 0;}
 }
 .pos-cta p{margin:0;font-size:17px;color:var(--paper);line-height:1.7;}
 .pos-cta-note{color:var(--accent-pop);font-size:15px;}
+.btn-copy-mail{font-family:var(--font-mono);letter-spacing:0.01em;}
+.btn-copy-mail.is-copied{background:var(--signal-blue);color:var(--obsidian);}
 
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
@@ -524,7 +526,7 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
         <span class="pos-cta-note">지원기간 : ~09/06<br>
         제출 문서 : 지원동기, 지원 파트, 관련 프로젝트나 경험을 형식 무관하게 정리 (추천 : PPT / MS Word → PDF)<br>
         다음주에 순차적으로 연락드리겠습니다.</span></p>
-      <a class="btn-pill btn-primary" href="mailto:dongyub39@snu.ac.kr">연락하기 ↗</a>
+      <a class="btn-pill btn-primary btn-copy-mail" href="mailto:dongyub39@snu.ac.kr" data-email="dongyub39@snu.ac.kr" data-copied="주소를 복사했습니다" title="클릭하면 주소가 복사되고 메일 앱이 열립니다"><span class="btn-copy-label">dongyub39@snu.ac.kr ↗</span></a>
     </div>
   </div>
 </section>
@@ -746,6 +748,35 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
     if(reduce) return;
     document.querySelectorAll('.autoplay-video').forEach(function(v){
       v.play().catch(function(){ /* autoplay blocked; poster frame + controls remain */ });
+    });
+  })();
+
+  // Contact button: copy the address to the clipboard, then let the
+  // mailto: link open the mail app as usual. Brief "copied" feedback.
+  (function(){
+    document.querySelectorAll('.btn-copy-mail').forEach(function(btn){
+      var label = btn.querySelector('.btn-copy-label');
+      var original = label ? label.textContent : '';
+      var timer;
+      btn.addEventListener('click', function(){
+        var email = btn.getAttribute('data-email') || '';
+        var done = function(){
+          if(!label) return;
+          label.textContent = btn.getAttribute('data-copied') || 'Copied';
+          btn.classList.add('is-copied');
+          clearTimeout(timer);
+          timer = setTimeout(function(){ label.textContent = original; btn.classList.remove('is-copied'); }, 1800);
+        };
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(email).then(done).catch(function(){});
+        } else {
+          var ta = document.createElement('textarea');
+          ta.value = email; ta.setAttribute('readonly',''); ta.style.position = 'absolute'; ta.style.left = '-9999px';
+          document.body.appendChild(ta); ta.select();
+          try { document.execCommand('copy'); done(); } catch(e){}
+          document.body.removeChild(ta);
+        }
+      });
     });
   })();
 

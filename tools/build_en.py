@@ -37,7 +37,7 @@ T = [
  ('지원기간 : ~09/06', 'Application period : until Sept 6'),
  ('제출 문서 : 지원동기, 지원 파트, 관련 프로젝트나 경험을 형식 무관하게 정리 (추천 : PPT / MS Word → PDF)', 'What to submit : your motivation, the part you are applying for, and related projects or experience, in any format (recommended : PPT / MS Word exported to PDF)'),
  ('다음주에 순차적으로 연락드리겠습니다.', 'We will get back to you one by one next week.'),
- ('>연락하기 ↗</a>', '>Get in touch ↗</a>'),
+ ('data-copied="주소를 복사했습니다" title="클릭하면 주소가 복사되고 메일 앱이 열립니다"', 'data-copied="Address copied" title="Click to copy the address and open your mail app"'),
  # roadmap
  ('STATUS - Huphy 1.0 하체 조립 완료, 기립과 보행 제어 준비 중', 'STATUS - Huphy 1.0 lower body assembled, standing and walking control in preparation'),
  ('<div class="rmap-name">하체 설계와 제작</div>', '<div class="rmap-name">Lower-body design and build</div>'),
