@@ -34,7 +34,7 @@ T = [
  ('모터 제어, 강화학습 기반 보행 제어, 시스템 아키텍처 설계', 'Motor control, reinforcement-learning-based locomotion control, system architecture design'),
  ('요구 - C++/Python, 강화학습 또는 로보틱스 제어에 관심', 'REQUIRED - C++/Python, interest in reinforcement learning or robot control'),
  ('프로젝트에 관심이 있다면 메일로 연락해 주세요.', 'Interested in the project? Send us an e-mail.'),
- ('지원기간 : ~09/06', 'Application period : until Sept 6'),
+ ('지원기간 : ~09/21', 'Application period : until Sept 21'),
  ('제출 문서 : 지원동기, 지원 파트, 관련 프로젝트나 경험을 형식 무관하게 정리 (추천 : PPT / MS Word → PDF)', 'What to submit : your motivation, the part you are applying for, and related projects or experience, in any format (recommended : PPT / MS Word exported to PDF)'),
  ('다음주에 순차적으로 연락드리겠습니다.', 'We will get back to you one by one next week.'),
  ('data-copied="주소를 복사했습니다" title="클릭하면 주소가 복사되고 메일 앱이 열립니다"', 'data-copied="Address copied" title="Click to copy the address and open your mail app"'),
