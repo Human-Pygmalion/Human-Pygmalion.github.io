@@ -448,6 +448,17 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
 .foot-card-name{font-size:14px;font-weight:600;color:#0f1f3d;letter-spacing:-0.01em;}
 .foot-card-sub{font-size:12.5px;color:#373b3e;}
 .foot-card:hover{background:#eef3f5;}
+
+/* affiliation marks: university logos stacked under the lab card.
+   both logos are dark-on-white artwork, so they need a light panel here. */
+.foot-left{display:flex;flex-direction:column;align-items:flex-start;gap:12px;}
+.foot-orgs{
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+  padding:18px 22px;border-radius:12px;background:var(--paper);
+}
+.foot-orgs img{display:block;width:auto;max-width:100%;}
+.foot-orgs .org-snu{height:68px;}
+.foot-orgs .org-seoultech{height:40px;}
 @media (max-width:760px){.foot-right{text-align:left;justify-self:stretch;}}
 
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
@@ -523,7 +534,7 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
 
     <div class="pos-cta">
       <p>Interested in the project? Send us an e-mail.<br>
-        <span class="pos-cta-note">Application period : until Sept 21<br>
+        <span class="pos-cta-note">Application period : rolling<br>
         What to submit : your motivation, the part you are applying for, and related projects or experience, in any format (recommended : PPT / MS Word exported to PDF)</span></p>
       <a class="btn-pill btn-primary btn-copy-mail" href="mailto:dongyub39@snu.ac.kr" data-email="dongyub39@snu.ac.kr" data-copied="Address copied" title="Click to copy the address and open your mail app"><span class="btn-copy-label">dongyub39@snu.ac.kr ↗</span></a>
     </div>
@@ -539,7 +550,7 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
       <h2 class="heading-lg">Roadmap</h2>
     </div>
     <div class="rmap-center">
-      <div class="status-pill">STATUS - Huphy 1.0 lower body assembled, standing and walking control in preparation</div>
+      <div class="status-pill">STATUS - Huphy 1.0 upper and lower body assembled, standing and walking control in preparation</div>
 
       <div class="card roadmap" style="padding:8px 0;">
       <div class="rmap-row">
@@ -558,7 +569,7 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
         <div class="rmap-phase">Phase 3</div>
         <div class="rmap-name">Upper-body design and build</div>
         <div class="rmap-desc">Torso and arm design, completing the full-body hardware</div>
-        <div class="rmap-state next">Next</div>
+        <div class="rmap-state now">In progress</div>
       </div>
       <div class="rmap-row">
         <div class="rmap-phase">Phase 4</div>
@@ -705,6 +716,14 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
         <div class="m-task">Concept art, exterior design</div>
       </div>
 
+      <div class="member-row">
+        <div><span class="m-name">Yeonggil Do</span><span class="m-status active">ACTIVE</span></div>
+        <div class="m-team">Sim2Real</div>
+        <div class="m-task">Actuator control</div>
+      </div>
+
+
+
       <div class="roster-group">Past Members</div>
       <div class="member-row">
         <div><span class="m-name">Dongwoo Seo</span><span class="m-status alumni">ALUMNI</span></div>
@@ -729,13 +748,19 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
   <div class="wrap">
     <div class="foot-mark">HUMAN PYGMALION</div>
     <div class="foot-row">
-      <a class="foot-card" href="https://arisnu.squarespace.com/" target="_blank" rel="noopener" aria-label="Autonomous Robot Intelligence Lab website">
-        <img src="../assets/img/aril_logo.png" alt="ARIL logo" width="97" height="42">
-        <div class="foot-card-text">
-          <div class="foot-card-name">Autonomous Robot Intelligence Lab. (ARIL)</div>
-          <div class="foot-card-sub">Seoul National University</div>
+      <div class="foot-left">
+        <a class="foot-card" href="https://arisnu.squarespace.com/" target="_blank" rel="noopener" aria-label="Autonomous Robot Intelligence Lab website">
+          <img src="../assets/img/aril_logo.png" alt="ARIL logo" width="97" height="42">
+          <div class="foot-card-text">
+            <div class="foot-card-name">Autonomous Robot Intelligence Lab. (ARIL)</div>
+            <div class="foot-card-sub">Seoul National University</div>
+          </div>
+        </a>
+        <div class="foot-orgs">
+          <img class="org-snu" src="../assets/img/snu_ui.png" alt="Seoul National University logo">
+          <img class="org-seoultech" src="../assets/img/seoultech_bs.png" alt="Seoul National University of Science and Technology logo">
         </div>
-      </a>
+      </div>
       <div class="foot-col foot-panel foot-right">
         <div class="foot-col-label">Contact</div>
         <p>E-mail : <a href="mailto:dongyub39@snu.ac.kr">dongyub39@snu.ac.kr</a></p>
