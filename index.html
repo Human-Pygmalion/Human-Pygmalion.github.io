@@ -781,7 +781,10 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
           </div>
         </a>
         <div class="foot-orgs">
-          <img class="org-snu" src="assets/img/snu_ui.png" alt="서울대학교 로고" width="1377" height="314">
+          <!-- ?v= is a cache buster: this path briefly served a different
+               (square emblem) file, and browsers that cached it then keep
+               showing it. Bump the number whenever the artwork changes. -->
+          <img class="org-snu" src="assets/img/snu_ui.png?v=2" alt="서울대학교 로고" width="1377" height="314">
           <img class="org-seoultech" src="assets/img/seoultech_bs.jpg" alt="서울과학기술대학교 로고" width="1623" height="341">
         </div>
       </div>
