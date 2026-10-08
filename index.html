@@ -262,6 +262,14 @@ section{padding:96px 0;}
 .mosaic--featured{}
 @media (min-width:900px){.mosaic--featured{column-count:3;}}
 .mosaic-item{break-inside:avoid;margin:0 0 var(--mosaic-gap);}
+/* lead shot: the studio full-body photo is the headline image of the log.
+   Inside the pack the solver sized it off its 2:3 ratio and it came out
+   roughly half the height of the taller renders, so it gets a slot of its
+   own with the height set directly. One value to tune. */
+.buildlog-lead{display:flex;justify-content:center;padding:16px;margin-bottom:16px;}
+.buildlog-lead .mosaic-item{margin:0;max-width:100%;}
+.buildlog-lead img{height:720px;width:auto;max-width:100%;}
+@media (max-width:860px){.buildlog-lead img{height:auto;width:100%;}}
 
 /* JS-packed masonry: once script runs it measures real item heights and
    bin-packs them into equal-height flex columns (shortest-column-first),
@@ -450,15 +458,16 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
 .foot-card:hover{background:#eef3f5;}
 
 /* affiliation marks: university logos stacked under the lab card.
-   both logos are dark-on-white artwork, so they need a light panel here. */
+   both are dark-on-white artwork, so they need a light backing here. */
 .foot-left{display:flex;flex-direction:column;align-items:flex-start;gap:12px;}
-.foot-orgs{
-  display:flex;flex-direction:column;align-items:center;gap:16px;
-  padding:18px 22px;border-radius:12px;background:var(--paper);
+/* one white box per university. both marks are wide signatures of near
+   identical ratio, so matching their width lines the two boxes up.
+   content-box keeps the width below meaning the logo, not the box. */
+.foot-orgs{display:flex;flex-direction:column;align-items:flex-start;gap:10px;}
+.foot-orgs img{
+  box-sizing:content-box;display:block;width:220px;max-width:100%;height:auto;
+  padding:14px 18px;border-radius:12px;background:var(--paper);
 }
-.foot-orgs img{display:block;width:auto;max-width:100%;}
-.foot-orgs .org-snu{height:68px;}
-.foot-orgs .org-seoultech{height:40px;}
 @media (max-width:760px){.foot-right{text-align:left;justify-self:stretch;}}
 
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
@@ -589,6 +598,15 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
       <p class="section-lede">컨셉부터 실제 프로토타입 Huphy 1.0 제작까지의 여정</p>
     </div>
 
+    <div class="mosaic-frame buildlog-lead">
+      <figure class="mosaic-item">
+        <button class="mosaic-btn" data-caption="FULL : Huphy 1.0 전신 실물" aria-label="확대 보기: Huphy 1.0 전신 실물">
+          <img src="assets/img/huphy_fullbody.jpg" width="1200" height="1800" alt="Huphy 1.0 전신 조립 실물, 스튜디오 촬영">
+        </button>
+        <figcaption><span class="feat-idx">FULL</span>실물 - Huphy 1.0 전신</figcaption>
+      </figure>
+    </div>
+
     <div class="mosaic-frame">
       <div class="mosaic mosaic--featured">
         <figure class="mosaic-item">
@@ -624,6 +642,12 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
         <figure class="mosaic-item">
           <video class="autoplay-video" width="1280" height="720" src="assets/video/leg_motion_test.mp4" poster="assets/img/leg_motion_poster.jpg" muted="muted" loop="" playsinline="" controls="controls" preload="metadata" aria-label="다리 구동 테스트 동작 영상"></video>
           <figcaption><span class="feat-idx">MOTION</span>동작 - 다리 구동 테스트</figcaption>
+        </figure>
+        <figure class="mosaic-item">
+          <button class="mosaic-btn" data-caption="CONTROL : 하체 기립 제어" aria-label="확대 보기: 하체 기립 제어">
+            <img src="assets/img/control_standing.jpg" width="1800" height="610" alt="하체 기립 제어 3단계, 자세 추정 오버레이" loading="lazy">
+          </button>
+          <figcaption><span class="feat-idx">CONTROL</span>제어 - 하체 기립</figcaption>
         </figure>
         <figure class="mosaic-item">
           <button class="mosaic-btn" data-caption="SIM : 시뮬레이션 모델" aria-label="확대 보기: 시뮬레이션 모델">
@@ -757,8 +781,8 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
           </div>
         </a>
         <div class="foot-orgs">
-          <img class="org-snu" src="assets/img/snu_ui.png" alt="서울대학교 로고">
-          <img class="org-seoultech" src="assets/img/seoultech_bs.png" alt="서울과학기술대학교 로고">
+          <img class="org-snu" src="assets/img/snu_ui.png" alt="서울대학교 로고" width="1377" height="314">
+          <img class="org-seoultech" src="assets/img/seoultech_bs.jpg" alt="서울과학기술대학교 로고" width="1623" height="341">
         </div>
       </div>
       <div class="foot-col foot-panel foot-right">
