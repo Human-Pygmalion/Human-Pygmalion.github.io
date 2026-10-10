@@ -119,6 +119,7 @@ T = [
  # footer
  ('aria-label="Autonomous Robot Intelligence Lab 홈페이지"', 'aria-label="Autonomous Robot Intelligence Lab website"'),
  ('alt="ARIL 로고"', 'alt="ARIL logo"'),
+ ('aria-label="서울대학교 RISE 사업단 홈페이지"', 'aria-label="Seoul National University RISE program website"'),
  ('<div class="foot-card-sub">서울대학교 자율로봇지능 연구실</div>', '<div class="foot-card-sub">Seoul National University</div>'),
  ('alt="서울대학교 로고"', 'alt="Seoul National University logo"'),
  ('alt="서울과학기술대학교 로고"', 'alt="Seoul National University of Science and Technology logo"'),

@@ -464,6 +464,7 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
    identical ratio, so matching their width lines the two boxes up.
    content-box keeps the width below meaning the logo, not the box. */
 .foot-orgs{display:flex;flex-direction:column;align-items:flex-start;gap:10px;}
+.foot-orgs a{display:block;}
 .foot-orgs img{
   box-sizing:content-box;display:block;width:220px;max-width:100%;height:auto;
   padding:14px 18px;border-radius:12px;background:var(--paper);
@@ -785,7 +786,7 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
     <div class="foot-mark">HUMAN PYGMALION</div>
     <div class="foot-row">
       <div class="foot-left">
-        <a class="foot-card" href="https://arisnu.squarespace.com/" target="_blank" rel="noopener" aria-label="Autonomous Robot Intelligence Lab 홈페이지">
+        <a class="foot-card" href="https://robot.snu.ac.kr" target="_blank" rel="noopener" aria-label="Autonomous Robot Intelligence Lab 홈페이지">
           <img src="assets/img/aril_logo.png" alt="ARIL 로고" width="97" height="42">
           <div class="foot-card-text">
             <div class="foot-card-name">Autonomous Robot Intelligence Lab. (ARIL)</div>
@@ -796,7 +797,7 @@ footer{border-top:1px solid var(--border-inset);padding:64px 0 48px;}
           <!-- ?v= is a cache buster: this path briefly served a different
                (square emblem) file, and browsers that cached it then keep
                showing it. Bump the number whenever the artwork changes. -->
-          <img class="org-snu" src="assets/img/snu_ui.png?v=2" alt="서울대학교 로고" width="1377" height="314">
+          <a href="https://rise.snu.ac.kr/" target="_blank" rel="noopener" aria-label="서울대학교 RISE 사업단 홈페이지"><img class="org-snu" src="assets/img/snu_ui.png?v=2" alt="서울대학교 로고" width="1377" height="314"></a>
           <img class="org-seoultech" src="assets/img/seoultech_bs.jpg" alt="서울과학기술대학교 로고" width="1623" height="341">
           <img class="org-seoultech-startup" src="assets/img/seoultech_startup.jpg" alt="서울과학기술대학교 창업지원단 로고" width="1600" height="258">
         </div>
